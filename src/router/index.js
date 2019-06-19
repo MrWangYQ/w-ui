@@ -7,8 +7,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: '',
-      component: '',
+      name: 'index',
+      component: resolve => require(['@/view/index'], resolve),
     },
   ],
 });

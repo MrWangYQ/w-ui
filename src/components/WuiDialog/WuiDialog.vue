@@ -19,83 +19,62 @@
 
 <script>
 export default {
-  name: "VuiDialog",
+  name: 'VuiDialog',
   props: {
     // 操作 展示隐藏
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // title 展示
     title: {
       type: String,
-      default: "自定义弹框"
+      default: '自定义弹框',
     },
     // 控制 首部、尾部 是否居中
     center: {
       type: String,
-      default: "false"
+      default: 'false',
     },
     // 弹框宽度
     width: {
       type: String,
-      default: "25%"
+      default: '25%',
     },
     // 关闭之前的回调
     beforeClose: {
       type: Function,
-      required: false
+      required: false,
     },
     // 是否展示关闭图标 （X 叉号）
     showClose: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 是否 点击遮罩层 关闭
     closeClickModal: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   data() {
     return {
-      DialogFlag: false
+      DialogFlag: false,
     };
   },
   watch: {
-    /*    visible(newVal, oldVal) {
-            console.log(newVal, oldVal);
-            if (newVal) {
-                this.DialogFlag = false;
-            } else {
-                this.DialogFlag = true;
-            }
-            if (newVal && this.DialogFlag) {
-                if (this.DialogFlag) {
-                    this.DialogFlag = !newVal;
-                } else {
-                    this.DialogFlag = !this.DialogFlag;
-                }
-            } else {
-                if (!this.DialogFlag) {
-                    this.DialogFlag = !this.DialogFlag;
-                } else {
-                    this.DialogFlag = !this.DialogFlag;
-                }
-            }
-        },*/
     visible(newVal, oldVal) {
       if (newVal) {
-        this.$emit("open");
+        this.$emit('open');
       } else {
-        this.$emit("close");
+        this.$emit('close');
       }
-    }
+    },
   },
   computed: {
     // 定义首尾是否高度
     Header_footer_center() {
-      return this.$props.center == "false" ? "" : "textAlign:center";
+      return this.$props.center === 'false' ? '' : 'textAlign:center';
     },
     // 定义宽度
     clientWidth() {
@@ -103,15 +82,16 @@ export default {
     },
     // 是否叉号展示
     closeBtn() {
-      return this.showClose ? true : false;
-    }
+      const showClose = this.showClose;
+      return showClose;
+    },
   },
   mounted() {},
   methods: {
     //  关闭前回调
     closeDialog() {
-      console.log("叉号关闭");
-      if (typeof this.beforeClose == "function") {
+      console.log('叉号关闭');
+      if (typeof this.beforeClose === 'function') {
         // 是函数触发 关闭前的回调
         this.beforeClose(this.hideDialog);
       } else {
@@ -121,7 +101,7 @@ export default {
     },
     // 点击遮罩层 弹框关闭 方法
     closeModalDialog() {
-      console.log("遮罩层入口");
+      console.log('遮罩层入口');
       if (!this.closeClickModal) return;
       this.hideDialog();
     },
@@ -129,15 +109,15 @@ export default {
     hideDialog(cancel) {
       if (cancel !== false) {
         // 更新 弹框 状态
-        this.$emit("update:visible", false);
+        this.$emit('update:visible', false);
       }
     },
     // 提交
     postFromData() {
       this.DialogFlag = false;
       this.hideDialog();
-    }
-  }
+    },
+  },
 };
 </script>
 

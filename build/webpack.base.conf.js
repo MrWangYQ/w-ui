@@ -3,6 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const NODE_ENV = process.env.NODE_ENV
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -21,15 +22,22 @@ const createLintingRule = () => ({
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry: {
-    app: './src/main.js'
-  },
+  entry: NODE_ENV == 'development' ? './src/main.js' : './src/index.js',
+  // {
+  //   app: './src/main.js'
+  // },
   output: {
-    path: config.build.assetsRoot,
+    path: path.resolve(__dirname, './dist'),
+    publicPath: '/dist/',
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    library: '[name].js',
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
+    // path: config.build.assetsRoot,
+    // filename: '[name].js',
+    // publicPath: process.env.NODE_ENV === 'production'
+    //   ? config.build.assetsPublicPath
+    //   : config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],

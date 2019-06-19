@@ -6,13 +6,14 @@ const components = [
   WuiDialog,
   Button,
   // ...如果还有的话继续添加
-]
+];
 
 const install = function (Vue, opts = {}) {
-  components.map(component => {
+  components.map((component) => {
     Vue.component(component.name, component);
-  })
-}
+    return component.name;
+  });
+};
 
 /* 支持使用标签的方式引入 */
 if (typeof window !== 'undefined' && window.Vue) {
@@ -24,4 +25,4 @@ export default {
   WuiDialog,
   Button,
   // ...如果还有的话继续添加
-}
+};

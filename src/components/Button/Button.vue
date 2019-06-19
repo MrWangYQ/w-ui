@@ -22,61 +22,59 @@
 
 <script>
 export default {
-  name: "Button",
+  name: 'Button',
   props: {
     type: {
       validator(value) {
         return (
-          ["default", "primary", "danger", "brilliant", "text"].indexOf(
-            value
-          ) !== -1
+          ['default', 'primary', 'danger', 'brilliant', 'text'].indexOf(value) !== -1
         );
       },
-      default: "default"
+      default: 'default',
     },
     size: {
       validator(value) {
-        return ["default", "large", "small", "mini"].indexOf(value) !== -1;
+        return ['default', 'large', 'small', 'mini'].indexOf(value) !== -1;
       },
-      default: "default"
+      default: 'default',
     },
     sharp: Boolean,
     disabled: Boolean,
     bold: Boolean,
     nativeType: {
       validator(value) {
-        return ["submit", "button", "reset"].indexOf(value) !== -1;
+        return ['submit', 'button', 'reset'].indexOf(value) !== -1;
       },
-      default: "button"
+      default: 'button',
     },
     hover: {
       type: String,
-      default: "#3C9CE6"
-    }
+      default: '#3C9CE6',
+    },
   },
 
   methods: {
     cl(block, type, size, sharp, disabled, bold) {
       const result = [block];
-      if (type !== "default") result.push(`${block}--${type}`);
-      if (size !== "default") result.push(`${block}--${size}`);
+      if (type !== 'default') result.push(`${block}--${type}`);
+      if (size !== 'default') result.push(`${block}--${size}`);
       if (bold) result.push(`${block}--bold`);
       if (sharp) result.push(`${block}--sharp`);
       if (disabled) result.push(`${block}--disabled`);
-      return result.join(" ");
+      return result.join(' ');
     },
     over() {
       this.$refs.button.style.color = this.hover;
     },
     out() {
-      this.$refs.button.style.color = "#303030";
-    }
-  }
+      this.$refs.button.style.color = '#303030';
+    },
+  },
 };
 </script>
 
 <style lang='less'>
-@import "../assets/variable";
+@import "../../assets/css/variable";
 
 .o-button {
   position: relative;
