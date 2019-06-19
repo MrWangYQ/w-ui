@@ -1,2 +1,31 @@
 # w-ui
-基于 vue 的前端 UI 框架
+
+> A Vue.js project 
+
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+
+# run unit tests
+npm run unit
+
+# run e2e tests
+npm run e2e
+
+# run all tests
+npm test
+```
+```
+工作中各种需求下诞生的各种UI
+```
