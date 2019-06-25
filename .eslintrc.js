@@ -48,6 +48,9 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     "no-console": 0,
     "func-names": 0,
-    "no-unused-vars":0
+    "no-unused-vars":0,
+    "global-require": 0,
+    "no-dynamic-require": 0,
+    "array-callback-return": 0,
   }
 }

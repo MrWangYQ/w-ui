@@ -1,0 +1,51 @@
+/* base css */
+body, div, dl, dt, dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption, cite,code,dfn,em,strong,th{font-style:normal;font-weight:normal;}
+ol,ul {list-style:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+a{text-decoration: none; color: #2c3e50;}
+/* common css */
+html, body{width: 100%;height: 100%;}
+#app {
+  width: 100%;
+  height: 100%;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  color: #2c3e50;
+}
+.container,
+.el-container,
+.el-aside,
+.el-main{
+  width: 100%;
+  height: 100%;
+}
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+textarea {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  resize:none;
+}
+
+@font-face {
+  font-family: 'iconfont';
+  src: url('/static/iconfont/iconfont.eot');
+  src: url('/static/iconfont/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('/static/iconfont/iconfont.woff2') format('woff2'),
+    url('/static/iconfont/iconfont.woff') format('woff'),
+    url('/static/iconfont/iconfont.ttf') format('truetype'),
+    url('/static/iconfont/iconfont.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 18px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

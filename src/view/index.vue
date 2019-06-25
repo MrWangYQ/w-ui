@@ -12,15 +12,15 @@ export default {
   data() {
     return {
 
-    }
+    };
   },
   components: {
     WuiDialog,
   },
   methods: {
 
-  }
-}
+  },
+};
 </script>
 
 <style>

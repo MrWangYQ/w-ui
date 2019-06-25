@@ -22,22 +22,23 @@ const createLintingRule = () => ({
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry: NODE_ENV == 'development' ? './src/main.js' : './src/index.js',
-  // {
-  //   app: './src/main.js'
-  // },
+  entry: 
+  // NODE_ENV == 'development' ? './src/main.js' : './src/index.js',
+  {
+    app: './src/main.js'
+  },
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
-    filename: '[name].js',
-    library: '[name].js',
-    libraryTarget: 'umd',
-    umdNamedDefine: true,
-    // path: config.build.assetsRoot,
+    // path: path.resolve(__dirname, './dist'),
+    // publicPath: '/dist/',
     // filename: '[name].js',
-    // publicPath: process.env.NODE_ENV === 'production'
-    //   ? config.build.assetsPublicPath
-    //   : config.dev.assetsPublicPath
+    // library: '[name].js',
+    // libraryTarget: 'umd',
+    // umdNamedDefine: true,
+    path: config.build.assetsRoot,
+    filename: '[name].js',
+    publicPath: process.env.NODE_ENV === 'production'
+      ? config.build.assetsPublicPath
+      : config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -57,6 +58,10 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+      },
+      {
+        test: /\.sass$/,
+        loaders: ['style', 'css', 'sass']
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
