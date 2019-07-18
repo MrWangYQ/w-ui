@@ -8,7 +8,7 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      redirect: '/cascader',
+      // redirect: '/cascader',
       component: resolve => require(['../view/index'], resolve),
     },
     {

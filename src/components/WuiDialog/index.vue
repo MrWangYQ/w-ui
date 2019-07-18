@@ -1,16 +1,16 @@
 <template>
-  <div class="vui-dialog__content" v-if="visible" @click.prevent="closeModalDialog">
-    <section class="vui-dialog" @click.stop :style="{ width: clientWidth }">
-      <div class="vui-dialog__header vui-dialog-pd" :style="Header_footer_center">
-        <span class="vui-dialog__title">{{ title }}</span>
+  <div class="wui-dialog__content" v-if="visible" @click.prevent="closeModalDialog">
+    <section class="wui-dialog" @click.stop :style="{ width: clientWidth }">
+      <div class="wui-dialog__header wui-dialog-pd" :style="Header_footer_center">
+        <span class="wui-dialog__title">{{ title }}</span>
         <button v-show="closeBtn" @click="closeDialog">
           <i></i>
         </button>
       </div>
-      <div class="vui-dialog__body vui-dialog-pd">
+      <div class="wui-dialog__body wui-dialog-pd">
         <slot></slot>
       </div>
-      <div class="vui-dialog__footer vui-dialog-pd" :style="Header_footer_center">
+      <div class="wui-dialog__footer wui-dialog-pd" :style="Header_footer_center">
         <slot name="footer"></slot>
       </div>
     </section>
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'VuiDialog',
+  name: 'wuiDialog',
   props: {
     // 操作 展示隐藏
     visible: {
@@ -29,7 +29,7 @@ export default {
     // title 展示
     title: {
       type: String,
-      default: '自定义弹框',
+      default: '展示',
     },
     // 控制 首部、尾部 是否居中
     center: {
@@ -122,15 +122,15 @@ export default {
 </script>
 
 <style scoped lang='less'>
-.vui-dialog__content {
+.wui-dialog__content {
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  background: rgba(161, 163, 169, 0.3);
+  background: rgba(161, 163, 169, 0.9);
 }
-.vui-dialog {
+.wui-dialog {
   min-width: 341px;
   min-height: 130px;
   background: #ffffff;
@@ -188,7 +188,7 @@ export default {
     }
   }
 }
-.vui-dialog-pd {
+.wui-dialog-pd {
   padding: 10px 20px;
 }
 </style>

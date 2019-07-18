@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'Button',
+  name: 'WButton',
   props: {
     type: {
       validator(value) {
@@ -88,7 +88,7 @@ export default {
   outline: none;
   cursor: pointer;
   -webkit-appearance: none;
-  padding: 8px 51px;
+  padding: 8px 30px;
   margin: 0 5px;
   font-size: 14px;
   color: @default-color;

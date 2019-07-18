@@ -1,7 +1,7 @@
 <template>
   <div class="cascader">
-    <div>
-      <p>
+    <div class="cascader-content">
+      <div class="cascader-active">
         <span
           v-for="(item, index) in selectData"
           :key='index'>
@@ -10,14 +10,13 @@
             class="cursor-pointer"
             @click='delAccountData(item)'>×</i>
         </span>
-      </p>
-      <p>
+      </div>
+      <div class="cascader-btn">
         <w-button
           type="primary"
-          @click="openCascader">
-            Cascader
-        </w-button>
-      </p>
+          @click="openCascader"
+        >Cascader</w-button>
+      </div>
     </div>
     <div
       v-if="resultListFlag"
@@ -37,7 +36,7 @@
             type="checkbox"
             v-model="item.checked"
             @change="resultDataChange(item)">
-            <label :for='"checkbox"+ index'>{{ item.label }}</label>
+          <label :for='"checkbox"+ index'>{{ item.label }}</label>
         </li>
       </ul>
     </div>
@@ -120,6 +119,12 @@ export default {
     .add-acount {
       display: block;
     }
+  }
+  &-content {
+
+  }
+  &-active {
+    min-height: 50px;
   }
   &-result {
     position: absolute;

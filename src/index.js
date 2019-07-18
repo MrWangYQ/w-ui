@@ -1,10 +1,10 @@
 import WuiDialog from './components/WuiDialog/WuiDialog';
-import Button from './components/Button/Button';
+import WButton from './components/Button/Button';
 // ...如果还有的话继续添加
 
 const components = [
   WuiDialog,
-  Button,
+  WButton,
   // ...如果还有的话继续添加
 ];
 
@@ -23,6 +23,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default {
   install,
   WuiDialog,
-  Button,
+  WButton,
   // ...如果还有的话继续添加
 };
